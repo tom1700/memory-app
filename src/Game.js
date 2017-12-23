@@ -4,8 +4,7 @@ const Board = require('./Board');
 
 const template = `
 <div class="game">
-    <Menu score="{{score}}"></Menu>
-    <Board></Board>
+    <Menu v-bind:score="score"></Menu>
 </div>
 `;
 
