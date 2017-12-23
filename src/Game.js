@@ -1,6 +1,5 @@
 const Vue = require('vue/dist/vue.js');
 const Menu = require('./Menu');
-const Board = require('./Board');
 
 const template = `
 <div class="game">
@@ -10,7 +9,7 @@ const template = `
 
 const Game = Vue.component('Game', {
     template: template,
-    data: {
+    data:() => ({
         score: 0,
-    }
+    })
 });
