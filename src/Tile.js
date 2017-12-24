@@ -5,9 +5,10 @@ const template = `
 <div
     class="tile"
     v-bind:style="tileSize"
+    v-on:click="tileClicked(tile)"
 >
-    <div class="content">
-        <div class="sentence"v-if="tile.type === tileType.SENTENCE">
+    <div :class="{ content: true, overlayed: !tile.visible }">
+        <div class="sentence" v-if="tile.type === tileType.SENTENCE">
             {{tile.name}}
         </div>
         <div v-if="tile.type === tileType.IMAGE" >
@@ -19,7 +20,7 @@ const template = `
 `;
 
 const Tile = Vue.component('Tile', {
-    props: ['height', 'flex', 'tile'],
+    props: ['height', 'flex', 'tile', 'tileClicked'],
     template: template,
     data: () => ({
         tileType: constants.tileType

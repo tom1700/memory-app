@@ -9,12 +9,13 @@ const template = `
         :key="tile.key"
         :height="tileHeight"
         :flex="tileFlexBasis"
+        :tileClicked="tileClicked"
     />
 </div>
 `;
 
 const Board = Vue.component('Board', {
-    props: ['score', 'horizontalAmount', 'tiles'],
+    props: ['score', 'horizontalAmount', 'tiles', 'tileClicked'],
     template: template,
     mounted: function() {
         this.$nextTick(() => {
