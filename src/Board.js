@@ -5,6 +5,7 @@ const template = `
 <div class="board" ref="board">
     <Tile
         v-for="tile in tiles"
+        :tile="tile"
         :key="tile.key"
         :height="tileHeight"
         :flex="tileFlexBasis"
