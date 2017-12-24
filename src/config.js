@@ -8,27 +8,27 @@ module.exports = {
             audioSrc: 'eye.wav',
         },
         {
-            name: 'eye',
+            name: 'ear',
             imageSrc: 'eye.png',
             audioSrc: 'eye.wav',
         },
         {
-            name: 'eye',
+            name: 'hand',
             imageSrc: 'eye.png',
             audioSrc: 'eye.wav',
         },
         {
-            name: 'eye',
+            name: 'nose',
             imageSrc: 'eye.png',
             audioSrc: 'eye.wav',
         },
         {
-            name: 'eye',
+            name: 'shoulder',
             imageSrc: 'eye.png',
             audioSrc: 'eye.wav',
         },
         {
-            name: 'eye',
+            name: 'knee',
             imageSrc: 'eye.png',
             audioSrc: 'eye.wav',
         },
