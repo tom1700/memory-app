@@ -1,29 +1,19 @@
 const Vue = require('vue/dist/vue.js');
-const config = require('./config');
 const Tile = require('./Tile');
 
 const template = `
 <div class="board" ref="board">
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    <Tile :height="tileHeight" :flex="tileFlexBasis" />
-    
+    <Tile
+        v-for="tile in tiles"
+        :key="tile.name"
+        :height="tileHeight"
+        :flex="tileFlexBasis"
+    />
 </div>
 `;
 
 const Board = Vue.component('Board', {
-    props: ['score'],
+    props: ['score', 'horizontalAmount', 'tiles'],
     template: template,
     mounted: function() {
         this.$nextTick(() => {
@@ -43,10 +33,10 @@ const Board = Vue.component('Board', {
     },
     computed: {
         tileHeight: function() {
-            return Math.floor(this.boardWidth / config.horizontalAmount);
+            return Math.floor(this.boardWidth / this.horizontalAmount);
         },
         tileFlexBasis: function() {
-            return Math.floor(100 / config.horizontalAmount);
+            return Math.floor(100 / this.horizontalAmount);
         }
     }
 });
