@@ -11,9 +11,11 @@ const template = `
         <div class="sentence" v-if="tile.type === tileType.SENTENCE">
             {{tile.name}}
         </div>
-        <div v-if="tile.type === tileType.IMAGE" >
-            {{tile.name}} image
-        </div>
+        <div
+            class="image"
+            v-if="tile.type === tileType.IMAGE"
+            :style="{ backgroundImage: imagePath }"
+        />
     </div>
 </div>
 </div>
@@ -23,7 +25,7 @@ const Tile = Vue.component('Tile', {
     props: ['height', 'flex', 'tile', 'tileClicked'],
     template: template,
     data: () => ({
-        tileType: constants.tileType
+        tileType: constants.tileType,
     }),
     computed: {
         tileSize: function() {
@@ -31,6 +33,9 @@ const Tile = Vue.component('Tile', {
                 ['flex-basis']: `${this.flex}%`,
                 height: `${this.height}px`
             }
+        },
+        imagePath: function() {
+            return `url(resources/${this.tile.imageSrc})`
         }
     }
 });

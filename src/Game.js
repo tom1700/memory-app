@@ -36,7 +36,7 @@ const template = `
 <div class="game">
     <div class="name-form" v-if="gameState === '${gameStateType.BEFORE_START}'">
         <span class="label">Enter your name:</span>
-        <input type="text" v-model="name">
+        <input type="text" v-model="name" autofocus v-on:keyup="handleKeyUp">
         <button v-on:click="startGame">Save</button>
     </div>
     <Menu :score="score" :name="name"/>
@@ -62,14 +62,19 @@ const Game = Vue.component('Game', {
         name: ''
     }),
     methods: {
+        handleKeyUp: function(ev) {
+            if (ev.code === 'Enter') {
+                this.startGame();
+            }
+        },
         tileClicked: function(tile) {
+            this.playSound(tile.audioSrc);
             if (!tile.visible && !this.shouldFreeze) {
                 this.score = this.score + 1;
                 tile.visible = true;
                 if (!this.tileToCheck1) {
                     this.tileToCheck1 = tile;
                 } else {
-                    console.log('got in');
                     this.tileToCheck2 = tile;
                     if (this.tileToCheck1.name === this.tileToCheck2.name) {
                         this.tileToCheck1 = this.tileToCheck2 = null;
@@ -88,6 +93,11 @@ const Game = Vue.component('Game', {
                     }
                 }
             }
+        },
+        playSound: function(name) {
+            const path = `${process.cwd()}/resources/${name}`;
+            const audio = new Audio(path);
+            audio.play();
         },
         startGame: function() {
             this.gameState = gameStateType.STARTED;

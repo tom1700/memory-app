@@ -9,27 +9,27 @@ module.exports = {
         },
         {
             name: 'ear',
-            imageSrc: 'eye.png',
+            imageSrc: 'ear.png',
             audioSrc: 'ear.mp3',
         },
         {
             name: 'hand',
-            imageSrc: 'eye.png',
+            imageSrc: 'hand.png',
             audioSrc: 'ear.mp3',
         },
         {
             name: 'nose',
-            imageSrc: 'eye.png',
+            imageSrc: 'nose.png',
             audioSrc: 'ear.mp3',
         },
         {
             name: 'shoulder',
-            imageSrc: 'eye.png',
+            imageSrc: 'shoulder.gif',
             audioSrc: 'ear.mp3',
         },
         {
             name: 'knee',
-            imageSrc: 'eye.png',
+            imageSrc: 'knee.png',
             audioSrc: 'ear.mp3',
         },
     ]
