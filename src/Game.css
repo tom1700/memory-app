@@ -7,3 +7,37 @@ body {
     width: 100vw;
     display: flex;
 }
+
+.game .name-form {
+    position: fixed;
+    width: 30%;
+    height: 30%;
+    border: solid #000 1px;
+    background-color: #fff;
+    top: 35%;
+    left: 35%;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 16px;
+    font-size: 20px;
+}
+
+.game .name-form .label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.game .name-form input {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.game .name-form button {
+    display: block;
+    font-size: 20px;
+    background-color: #aaddff;
+    border: solid 1px #99ccdd;
+    cursor: pointer;
+}

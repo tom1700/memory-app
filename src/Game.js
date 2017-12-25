@@ -3,7 +3,7 @@ const Menu = require('./Menu');
 const Board = require('./Board');
 const config = require('./config');
 const constants = require('./constants');
-const { tileType } = constants;
+const { tileType, gameStateType } = constants;
 
 const generateTilesFromConfig = () => {
     let tiles = config.tiles
@@ -32,7 +32,12 @@ const generateTilesFromConfig = () => {
 
 const template = `
 <div class="game">
-    <Menu v-bind:score="score" />
+    <div class="name-form" v-if="gameState === '${gameStateType.BEFORE_START}'">
+        <span class="label">Enter your name:</span>
+        <input type="text" v-model="name">
+        <button v-on:click="startGame">Save</button>
+    </div>
+    <Menu :score="score" :name="name"/>
     <Board :horizontalAmount="horizontalAmount" :tiles="tiles" :tileClicked="tileClicked"/>
 </div>
 `;
@@ -44,9 +49,11 @@ const Game = Vue.component('Game', {
         tileToCheck1: null,
         tileToCheck2: null,
         horizontalAmount: config.horizontalAmount,
-        shouldFreeze: false,
+        shouldFreeze: true,
         found: 0,
         tiles: generateTilesFromConfig(),
+        gameState: gameStateType.BEFORE_START,
+        name: ''
     }),
     methods: {
         tileClicked: function(tile) {
@@ -75,6 +82,10 @@ const Game = Vue.component('Game', {
                     }
                 }
             }
+        },
+        startGame: function() {
+            this.gameState = gameStateType.STARTED;
+            this.shouldFreeze = false;
         }
     }
 });

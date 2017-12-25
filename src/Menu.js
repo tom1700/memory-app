@@ -2,11 +2,11 @@ const Vue = require('vue/dist/vue.js');
 
 const template = `
 <div class="menu">
-    Your score is: {{score}}
+    {{name}}, your score is: {{score}}
 </div>
 `;
 
 const Menu = Vue.component('Menu', {
-    props: ['score'],
+    props: ['score', 'name'],
     template: template
 });
