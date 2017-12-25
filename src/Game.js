@@ -1,4 +1,6 @@
 const Vue = require('vue/dist/vue.js');
+const fs = require('fs');
+let scoreList = require('../resources/score.json');
 const Menu = require('./Menu');
 const Board = require('./Board');
 const config = require('./config');
@@ -39,6 +41,10 @@ const template = `
     </div>
     <Menu :score="score" :name="name"/>
     <Board :horizontalAmount="horizontalAmount" :tiles="tiles" :tileClicked="tileClicked"/>
+    <div class="score-board" v-if="gameState === '${gameStateType.WON}'">
+        Congratulation! You won. <br />
+        Your score is {{score}}
+    </div>
 </div>
 `;
 
@@ -69,7 +75,7 @@ const Game = Vue.component('Game', {
                         this.tileToCheck1 = this.tileToCheck2 = null;
                         this.found += 2;
                         if (this.found === this.tiles.length) {
-                            alert('You won!');
+                            this.endGame();
                         }
                     } else {
                         this.shouldFreeze = true;
@@ -86,6 +92,20 @@ const Game = Vue.component('Game', {
         startGame: function() {
             this.gameState = gameStateType.STARTED;
             this.shouldFreeze = false;
-        }
+        },
+        endGame: function() {
+            this.gameState = gameStateType.WON;
+            this.shouldFreeze = true;
+            scoreList = scoreList || {};
+            scoreList.list = scoreList.list || [];
+            scoreList.list.push({
+                name: this.name,
+                date: new Date(),
+                score: this.score
+            });
+            fs.writeFile(`${process.cwd()}/resources/score.json`, JSON.stringify(scoreList), (result) => {
+                console.log(result);
+            });
+        },
     }
 });

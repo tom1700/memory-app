@@ -41,3 +41,17 @@ body {
     border: solid 1px #99ccdd;
     cursor: pointer;
 }
+
+.game .score-board {
+    position: fixed;
+    width: 30%;
+    height: 30%;
+    border: solid #000 1px;
+    background-color: #fff;
+    top: 35%;
+    left: 35%;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 16px;
+    font-size: 20px;
+}

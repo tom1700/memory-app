@@ -5,32 +5,32 @@ module.exports = {
         {
             name: 'eye',
             imageSrc: 'eye.png',
-            audioSrc: 'eye.wav',
+            audioSrc: 'ear.mp3',
         },
         {
             name: 'ear',
             imageSrc: 'eye.png',
-            audioSrc: 'eye.wav',
+            audioSrc: 'ear.mp3',
         },
         {
             name: 'hand',
             imageSrc: 'eye.png',
-            audioSrc: 'eye.wav',
+            audioSrc: 'ear.mp3',
         },
         {
             name: 'nose',
             imageSrc: 'eye.png',
-            audioSrc: 'eye.wav',
+            audioSrc: 'ear.mp3',
         },
         {
             name: 'shoulder',
             imageSrc: 'eye.png',
-            audioSrc: 'eye.wav',
+            audioSrc: 'ear.mp3',
         },
         {
             name: 'knee',
             imageSrc: 'eye.png',
-            audioSrc: 'eye.wav',
+            audioSrc: 'ear.mp3',
         },
     ]
 };
