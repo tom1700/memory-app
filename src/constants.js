@@ -1,4 +1,4 @@
-module.exports = {
+define({
     tileType: {
         IMAGE: 'IMAGE',
         SENTENCE: 'SENTENCE'
@@ -8,4 +8,4 @@ module.exports = {
         STARTED: 'STARTED',
         WON: 'WON'
     },
-};
+});

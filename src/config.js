@@ -1,4 +1,4 @@
-module.exports = {
+define({
     lessonName: 'Body parts',
     horizontalAmount: 4,
     tiles: [
@@ -33,4 +33,4 @@ module.exports = {
             audioSrc: 'ear.mp3',
         },
     ]
-};
+});

@@ -1,6 +1,11 @@
-const Vue = require('vue/dist/vue.js');
-const Game = require('./Game.js');
+requirejs.config({
+    paths: {
+        Vue: '../lib/vue'
+    }
+});
 
-const app = new Vue({
-    el: '.app'
+requirejs(['Vue', './Game'], function(Vue) {
+    const app = new Vue({
+        el: '.app'
+    });
 });

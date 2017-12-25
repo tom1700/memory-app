@@ -16,10 +16,8 @@
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^1.7.10"
-  },
   "dependencies": {
+    "requirejs": "^2.3.5",
     "vue": "^2.5.13"
   }
 }
