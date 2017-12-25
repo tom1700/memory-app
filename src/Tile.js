@@ -1,9 +1,11 @@
 define([
     'Vue',
-    './constants'
+    './constants',
+    './config'
 ], function(
     Vue,
-    constants
+    constants,
+    config
 ) {
     const template = `
     <div
@@ -39,7 +41,7 @@ define([
                 }
             },
             imagePath: function () {
-                return `url(resources/${this.tile.imageSrc})`
+                return `url(resources/${config.subFolder}/${this.tile.imageSrc})`
             }
         }
     });

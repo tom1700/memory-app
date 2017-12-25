@@ -1,6 +1,7 @@
 define({
     lessonName: 'Body parts',
     horizontalAmount: 4,
+    subFolder: 'example',
     tiles: [
         {
             name: 'eye',

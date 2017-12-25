@@ -101,7 +101,7 @@ define([
                 }
             },
             playSound: function(name) {
-                const path = `resources/${name}`;
+                const path = `resources/${config.subFolder}/${name}`;
                 const audio = new Audio(path);
                 audio.play();
             },
